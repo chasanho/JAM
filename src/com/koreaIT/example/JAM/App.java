@@ -22,7 +22,7 @@ public class App {
 		while (true) {
 			System.out.print("명령어 ) ");
 			String cmd = sc.nextLine().trim();
-
+ 
 			Connection conn = null;
 
 			try {
