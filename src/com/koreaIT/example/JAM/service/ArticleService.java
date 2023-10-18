@@ -16,8 +16,8 @@ public class ArticleService {
 		this.articleDao = new ArticleDao(conn);
 	}
 
-	public int doWrite(String title, String body) {
-		return articleDao.doWrite(title, body);
+	public int doWrite(int loginedMemberId, String title, String body) {
+		return articleDao.doWrite(loginedMemberId, title, body);
 	}
 
 	public List<Article> showList() {
@@ -54,6 +54,18 @@ public class ArticleService {
 
 	public int doDelete(int id) {
 		return articleDao.doDelete(id);
+	}
+
+	public Article getArticle(int id) {
+		
+		Map<String, Object> articleMap = articleDao.getArticle(id);
+		
+		if (articleMap.isEmpty()) {
+			return null;
+		}
+		
+		return new Article(articleMap);
+		
 	}
 
 
